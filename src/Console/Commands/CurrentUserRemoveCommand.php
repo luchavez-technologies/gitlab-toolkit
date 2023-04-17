@@ -1,8 +1,8 @@
 <?php
 
-namespace Luchavez\FlignoToolkit\Console\Commands;
+namespace Luchavez\GitlabToolkit\Console\Commands;
 
-use Luchavez\FlignoToolkit\Traits\UsesGitlabDataTrait;
+use Luchavez\GitlabToolkit\Traits\UsesGitlabDataTrait;
 use Illuminate\Console\Command;
 
 /**
@@ -19,7 +19,7 @@ class CurrentUserRemoveCommand extends Command
      *
      * @var string
      */
-    protected $name = 'toolkit:user:remove';
+    protected $name = 'gt:user:remove';
 
     /**
      * The console command description.
@@ -37,7 +37,7 @@ class CurrentUserRemoveCommand extends Command
     {
         $this->ongoing('Removing Personal Access Token (PAT) from COMPOSER_AUTH...');
 
-        if (flignoToolkit()->setToken(null, true)) {
+        if (gitlabToolkit()->setToken(null, true)) {
             $this->done('Removed Personal Access Token (PAT) from COMPOSER_AUTH.');
         } else {
             $this->failed('Failed to remove Personal Access Token (PAT) from COMPOSER_AUTH.');

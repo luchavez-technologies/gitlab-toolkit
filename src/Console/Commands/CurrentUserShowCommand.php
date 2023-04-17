@@ -1,8 +1,8 @@
 <?php
 
-namespace Luchavez\FlignoToolkit\Console\Commands;
+namespace Luchavez\GitlabToolkit\Console\Commands;
 
-use Luchavez\FlignoToolkit\Traits\UsesGitlabDataTrait;
+use Luchavez\GitlabToolkit\Traits\UsesGitlabDataTrait;
 use Illuminate\Console\Command;
 
 /**
@@ -19,7 +19,7 @@ class CurrentUserShowCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'toolkit:user';
+    protected $signature = 'gt:user';
 
     /**
      * The console command description.
@@ -37,8 +37,8 @@ class CurrentUserShowCommand extends Command
     {
         $this->fetchUserData();
 
-        if ($this->user_data && $version = flignoToolkit()->getGitlabSdk()->version()->get()->get('version')) {
-            $this->note('Welcome to Fligno Toolkit, '.$this->user_data->name.' ('.$this->user_data->email.')');
+        if ($this->user_data && $version = gitlabToolkit()->getGitlabSdk()->version()->get()->get('version')) {
+            $this->note('Welcome to Gitlab Toolkit, '.$this->user_data->name.' ('.$this->user_data->email.')');
             $this->note('You are using Gitlab '.$version);
         }
 

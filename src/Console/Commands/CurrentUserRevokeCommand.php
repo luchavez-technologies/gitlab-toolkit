@@ -1,6 +1,6 @@
 <?php
 
-namespace Luchavez\FlignoToolkit\Console\Commands;
+namespace Luchavez\GitlabToolkit\Console\Commands;
 
 use Luchavez\StarterKit\Traits\UsesCommandCustomMessagesTrait;
 use Illuminate\Console\Command;
@@ -19,7 +19,7 @@ class CurrentUserRevokeCommand extends Command
      *
      * @var string
      */
-    protected $name = 'toolkit:user:revoke';
+    protected $name = 'gt:user:revoke';
 
     /**
      * The console command description.
@@ -35,10 +35,10 @@ class CurrentUserRevokeCommand extends Command
      */
     public function handle(): int
     {
-        // Since `FlignoToolkit` service already has a copy of PAT, we can proceed with revoke.
+        // Since `GitlabToolkit` service already has a copy of PAT, we can proceed with revoke.
         $this->ongoing('Revoking Personal Access Token (PAT)');
 
-        if (flignoToolkit()->getGitlabSdk()->personalAccessToken()->revoke()) {
+        if (gitlabToolkit()->getGitlabSdk()->personalAccessToken()->revoke()) {
             $this->done('Revoked Personal Access Token (PAT)');
         } else {
             $this->failed('Failed to revoke Personal Access Token (PAT)');
@@ -46,7 +46,7 @@ class CurrentUserRevokeCommand extends Command
         }
 
         // Remove User Token from Composer AUTH
-        $this->call('toolkit:user:remove');
+        $this->call('gt:user:remove');
 
         return self::SUCCESS;
     }

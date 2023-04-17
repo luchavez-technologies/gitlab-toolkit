@@ -1,8 +1,8 @@
 <?php
 
-namespace Luchavez\FlignoToolkit\Console\Commands;
+namespace Luchavez\GitlabToolkit\Console\Commands;
 
-use Luchavez\FlignoToolkit\Traits\UsesGitlabDataTrait;
+use Luchavez\GitlabToolkit\Traits\UsesGitlabDataTrait;
 use Illuminate\Console\Command;
 
 /**
@@ -19,7 +19,7 @@ class PackageListCommand extends Command
      *
      * @var string
      */
-    protected $name = 'toolkit:package:list';
+    protected $name = 'gt:package:list';
 
     /**
      * The console command description.

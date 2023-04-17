@@ -1,6 +1,6 @@
 <?php
 
-namespace Luchavez\FlignoToolkit\Traits;
+namespace Luchavez\GitlabToolkit\Traits;
 
 use Luchavez\GitlabSdk\DataTransferObjects\GitlabCurrentUserResponseData;
 use Luchavez\StarterKit\Traits\UsesCommandCustomMessagesTrait;
@@ -63,7 +63,7 @@ trait UsesGitlabDataTrait
         do {
             $this->ongoing('Fetching user information using Gitlab Personal Access Token (PAT)');
 
-            $this->user_data = flignoToolkit()->getCurrentUser();
+            $this->user_data = gitlabToolkit()->getCurrentUser();
 
             if ($this->user_data) {
                 $this->done('Fetched user information using Gitlab Personal Access Token (PAT)');
@@ -71,15 +71,15 @@ trait UsesGitlabDataTrait
             } else {
                 $this->failed('Failed to fetch user information using Gitlab Personal Access Token (PAT)');
 
-                $query = http_build_query(['name' => 'Fligno Toolkit', 'scopes' => 'read_api']);
+                $query = http_build_query(['name' => 'Gitlab Toolkit', 'scopes' => 'read_api']);
                 $this->note('Create a PAT: '.
-                    flignoToolkit()->getGitlabSdk()->getUrl('/-/profile/personal_access_tokens?'.$query));
+                    gitlabToolkit()->getGitlabSdk()->getUrl('/-/profile/personal_access_tokens?'.$query));
 
                 $this->warning('When creating a PAT, only choose "read_api" from scopes');
                 $token = $this->secret('Enter Personal Access Token (PAT)');
 
                 $this->ongoing('Saving PAT to COMPOSER_AUTH');
-                if (flignoToolkit()->setToken($token, true)) {
+                if (gitlabToolkit()->setToken($token, true)) {
                     $this->done('Saved PAT to COMPOSER_AUTH');
                 } else {
                     $this->failed('Failed to persist token to COMPOSER_AUTH');
@@ -96,7 +96,7 @@ trait UsesGitlabDataTrait
     {
         $this->ongoing("Fetching current user's Gitlab groups");
 
-        $groups = flignoToolkit()->getCurrentUserGroups($search);
+        $groups = gitlabToolkit()->getCurrentUserGroups($search);
 
         if (! $groups) {
             throw new RuntimeException("Failed to fetch current user's Gitlab groups.");
@@ -115,7 +115,7 @@ trait UsesGitlabDataTrait
     {
         $this->ongoing("Fetching group's Gitlab packages");
 
-        $this->packages = flignoToolkit()
+        $this->packages = gitlabToolkit()
             ->getGroupPackages($groupId, $search)
             ->mapToGroups(fn ($item) => [$item['name'] => Arr::only($item, ['version', 'project_id'])]);
 

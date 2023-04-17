@@ -1,8 +1,8 @@
 <?php
 
-namespace Luchavez\FlignoToolkit\Console\Commands;
+namespace Luchavez\GitlabToolkit\Console\Commands;
 
-use Luchavez\FlignoToolkit\Traits\UsesGitlabDataTrait;
+use Luchavez\GitlabToolkit\Traits\UsesGitlabDataTrait;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 
@@ -20,7 +20,7 @@ class PackageCloneCommand extends Command
      *
      * @var string
      */
-    protected $name = 'toolkit:package:clone';
+    protected $name = 'gt:package:clone';
 
     /**
      * The console command description.
@@ -48,7 +48,7 @@ class PackageCloneCommand extends Command
         $projects = $this->packages
             ->only($this->package_choices)
             ->map(
-                fn ($arr) => flignoToolkit()->getGitlabSdk()
+                fn ($arr) => gitlabToolkit()->getGitlabSdk()
                 ->project($arr[0]['project_id'])
                 ->get()
                 ->get($this->shouldSsh() ? 'ssh_url_to_repo' : 'http_url_to_repo')
