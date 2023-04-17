@@ -1,8 +1,8 @@
 <?php
 
-namespace Luchavez\FlignoToolkit\Console\Commands;
+namespace Luchavez\GitlabToolkit\Console\Commands;
 
-use Luchavez\FlignoToolkit\Traits\UsesGitlabDataTrait;
+use Luchavez\GitlabToolkit\Traits\UsesGitlabDataTrait;
 use Illuminate\Console\Command;
 
 /**
@@ -19,7 +19,7 @@ class GroupListCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'toolkit:group:list';
+    protected $signature = 'gt:group:list';
 
     /**
      * The console command description.

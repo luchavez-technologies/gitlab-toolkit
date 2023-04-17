@@ -1,18 +1,14 @@
-# FlignoToolkit
+# Gitlab Toolkit
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
-[![Build Status][ico-travis]][link-travis]
-[![StyleCI][ico-styleci]][link-styleci]
-
-This is where your description should go. Take a look at [contributing.md](contributing.md) to see a to do list.
 
 ## Installation
 
 Via Composer
 
 ``` bash
-$ composer require luchavez/fligno-toolkit
+$ composer require luchavez/gitlab-toolkit
 ```
 
 ## Usage
@@ -44,14 +40,10 @@ If you discover any security related issues, please email jamescarloluchavez@gma
 
 MIT. Please see the [license file](license.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/luchavez/fligno-toolkit.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/luchavez/fligno-toolkit.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/luchavez/fligno-toolkit/master.svg?style=flat-square
-[ico-styleci]: https://styleci.io/repos/12345678/shield
+[ico-version]: https://img.shields.io/packagist/v/luchavez/gitlab-toolkit.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/luchavez/gitlab-toolkit.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/luchavez/fligno-toolkit
-[link-downloads]: https://packagist.org/packages/luchavez/fligno-toolkit
-[link-travis]: https://travis-ci.org/luchavez/fligno-toolkit
-[link-styleci]: https://styleci.io/repos/12345678
+[link-packagist]: https://packagist.org/packages/luchavez/gitlab-toolkit
+[link-downloads]: https://packagist.org/packages/luchavez/gitlab-toolkit
 [link-author]: https://github.com/luchmewep
 [link-contributors]: ../../contributors

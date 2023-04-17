@@ -1,6 +1,6 @@
 <?php
 
-namespace Luchavez\FlignoToolkit\Services;
+namespace Luchavez\GitlabToolkit\Services;
 
 use Luchavez\GitlabSdk\Data\Packages\ListGroupPackagesAttributes;
 use Luchavez\GitlabSdk\DataTransferObjects\GitlabCurrentUserResponseData;
@@ -8,13 +8,13 @@ use Luchavez\GitlabSdk\Services\GitlabSdk;
 use Illuminate\Support\Collection;
 
 /**
- * Class FlignoToolkit
+ * Class GitlabToolkit
  *
  * @author James Carlo Luchavez <jamescarloluchavez@gmail.com>
  *
  * @since  2021-12-20
  */
-class FlignoToolkit
+class GitlabToolkit
 {
     /**
      * @var string|null

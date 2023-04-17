@@ -1,8 +1,8 @@
 <?php
 
-namespace Luchavez\FlignoToolkit\Console\Commands;
+namespace Luchavez\GitlabToolkit\Console\Commands;
 
-use Luchavez\FlignoToolkit\Traits\UsesGitlabDataTrait;
+use Luchavez\GitlabToolkit\Traits\UsesGitlabDataTrait;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 
@@ -20,7 +20,7 @@ class PackageRequireCommand extends Command
      *
      * @var string
      */
-    protected $name = 'toolkit:package:require';
+    protected $name = 'gt:package:require';
 
     /**
      * The console command description.
@@ -48,7 +48,7 @@ class PackageRequireCommand extends Command
             $message = "Gitlab Group #$this->group_choice to Composer repositories";
 
             $this->ongoing("Adding $message");
-            if (flignoToolkit()->addGroupToComposerRepositories($this->group_choice)) {
+            if (gitlabToolkit()->addGroupToComposerRepositories($this->group_choice)) {
                 $this->done("Successfully added $message");
             } else {
                 $this->failed("Failed to add $message");
@@ -59,7 +59,7 @@ class PackageRequireCommand extends Command
 
         $this->ongoing('Installing package/s');
 
-        if ($success = flignoToolkit()->requirePackage($this->package_choices, $is_dev_dependency)) {
+        if ($success = gitlabToolkit()->requirePackage($this->package_choices, $is_dev_dependency)) {
             $this->done('Successfully installed package/s');
         } else {
             $this->failed('Failed to install package/s');

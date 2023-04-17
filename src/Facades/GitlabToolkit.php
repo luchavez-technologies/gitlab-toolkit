@@ -1,17 +1,17 @@
 <?php
 
-namespace Luchavez\FlignoToolkit\Facades;
+namespace Luchavez\GitlabToolkit\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * Class FlignoToolkit
+ * Class GitlabToolkit
  *
  * @author James Carlo Luchavez <jamescarloluchavez@gmail.com>
  *
- * @see \Luchavez\FlignoToolkit\Services\FlignoToolkit
+ * @see \Luchavez\GitlabToolkit\Services\GitlabToolkit
  */
-class FlignoToolkit extends Facade
+class GitlabToolkit extends Facade
 {
     /**
      * Get the registered name of the component.
@@ -20,6 +20,6 @@ class FlignoToolkit extends Facade
      */
     protected static function getFacadeAccessor(): string
     {
-        return 'fligno-toolkit';
+        return 'gitlab-toolkit';
     }
 }

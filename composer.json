@@ -1,21 +1,16 @@
 {
-    "name": "luchavez/fligno-toolkit",
-    "description": "Fligno Toolkit Laravel Package",
+    "name": "luchavez/gitlab-toolkit",
+    "description": "Gitlab Toolkit Laravel Package",
     "license": "MIT",
     "authors": [
         {
             "name": "James Carlo Luchavez",
             "email": "jamescarloluchavez@gmail.com",
             "homepage": "https://www.linkedin.com/in/jsluchavez/"
-        },
-        {
-            "name": "Fligno",
-            "email": "apps@fligno.com",
-            "homepage": "https://fligno.com/"
         }
     ],
-    "homepage": "https://github.com/luchmewep/fligno-toolkit",
-    "keywords": ["Laravel", "FlignoToolkit"],
+    "homepage": "https://github.com/luchmewep/gitlab-toolkit",
+    "keywords": ["Laravel", "GitlabToolkit"],
     "require": {
         "php": "^8.0",
         "illuminate/support": "~8|~9",
@@ -29,21 +24,21 @@
     },
     "autoload": {
         "psr-4": {
-            "Luchavez\\FlignoToolkit\\": "src/"
+            "Luchavez\\GitlabToolkit\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Luchavez\\FlignoToolkit\\Tests\\": "tests"
+            "Luchavez\\GitlabToolkit\\Tests\\": "tests"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Luchavez\\FlignoToolkit\\Providers\\FlignoToolkitServiceProvider"
+                "Luchavez\\GitlabToolkit\\Providers\\GitlabToolkitServiceProvider"
             ],
             "aliases": {
-                "FlignoToolkit": "Luchavez\\FlignoToolkit\\Facades\\FlignoToolkit"
+                "GitlabToolkit": "Luchavez\\GitlabToolkit\\Facades\\GitlabToolkit"
             }
         },
         "branch-alias": {
