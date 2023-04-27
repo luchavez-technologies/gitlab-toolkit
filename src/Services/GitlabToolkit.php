@@ -32,20 +32,27 @@ class GitlabToolkit
     /***** GETTERS & SETTERS *****/
 
     /**
-     * @param  bool  $from_composer_auth
+     * @return string
+     */
+    protected function getGitlabUrlArgument(): string
+    {
+        return 'gitlab-token.'.config('gitlab-sdk.url');
+    }
+
+    /**
+     * @param  bool  $from_auth_json
      * @return string|null
      */
-    public function getToken(bool $from_composer_auth = false): ?string
+    public function getToken(bool $from_auth_json = false): ?string
     {
-        if (! $from_composer_auth) {
+        if (! $from_auth_json) {
             return $this->token;
         }
 
         $process = make_process([
             'composer',
-            'global',
             'config',
-            'http-basic.'.config('gitlab-sdk.url').'.password',
+            $this->getGitlabUrlArgument(),
         ]);
 
         $process->run();
@@ -59,34 +66,23 @@ class GitlabToolkit
 
     /**
      * @param  string|null  $token
-     * @param  bool  $to_composer_auth
+     * @param  bool  $to_auth_json
      * @return bool
      */
-    public function setToken(string|null $token = null, bool $to_composer_auth = false): bool
+    public function setToken(string|null $token = null, bool $to_auth_json = false): bool
     {
         $token = $this->cleanToken($token);
 
         $success = true;
 
-        if ($to_composer_auth) {
+        if ($to_auth_json) {
             $arguments = [
                 'composer',
-                'global',
                 'config',
+                $this->getGitlabUrlArgument()
             ];
 
-            if ($token) {
-                $arguments = array_merge($arguments, [
-                    'http-basic.'.config('gitlab-sdk.url'),
-                    '___token___',
-                    $token,
-                ]);
-            } else {
-                $arguments = array_merge($arguments, [
-                    '--unset',
-                    'http-basic.'.config('gitlab-sdk.url'),
-                ]);
-            }
+            $arguments[] = $token ?: '--unset';
 
             // Create and run process
             $process = make_process($arguments);
