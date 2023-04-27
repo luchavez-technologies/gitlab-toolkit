@@ -26,7 +26,7 @@ class CurrentUserRemoveCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Remove current Gitlab user from Composer Auth.';
+    protected $description = 'Remove current Gitlab user from "auth.json".';
 
     /**
      * Execute the console command.
@@ -35,12 +35,12 @@ class CurrentUserRemoveCommand extends Command
      */
     public function handle(): int
     {
-        $this->ongoing('Removing Personal Access Token (PAT) from COMPOSER_AUTH...');
+        $this->ongoing('Removing Personal Access Token (PAT) from "auth.json"...');
 
         if (gitlabToolkit()->setToken(null, true)) {
-            $this->done('Removed Personal Access Token (PAT) from COMPOSER_AUTH.');
+            $this->done('Removed Personal Access Token (PAT) from "auth.json".');
         } else {
-            $this->failed('Failed to remove Personal Access Token (PAT) from COMPOSER_AUTH.');
+            $this->failed('Failed to remove Personal Access Token (PAT) from "auth.json".');
         }
 
         return self::SUCCESS;

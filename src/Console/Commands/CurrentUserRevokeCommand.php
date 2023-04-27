@@ -26,7 +26,7 @@ class CurrentUserRevokeCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Remove current Gitlab user from Composer Auth then revoke the token.';
+    protected $description = 'Remove current Gitlab user from "auth.json" then revoke the token.';
 
     /**
      * Execute the console command.
@@ -45,7 +45,7 @@ class CurrentUserRevokeCommand extends Command
             $this->note('Manually revoke tokens here: '.gitlabSdk()->getUrl('-/profile/personal_access_tokens'));
         }
 
-        // Remove User Token from Composer AUTH
+        // Remove User Token from "auth.json"
         $this->call('gt:user:remove');
 
         return self::SUCCESS;

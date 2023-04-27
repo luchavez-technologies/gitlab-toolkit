@@ -78,11 +78,11 @@ trait UsesGitlabDataTrait
                 $this->warning('When creating a PAT, only choose "read_api" from scopes');
                 $token = $this->secret('Enter Personal Access Token (PAT)');
 
-                $this->ongoing('Saving PAT to COMPOSER_AUTH');
+                $this->ongoing('Saving PAT to "auth.json"');
                 if (gitlabToolkit()->setToken($token, true)) {
-                    $this->done('Saved PAT to COMPOSER_AUTH');
+                    $this->done('Saved PAT to "auth.json"');
                 } else {
-                    $this->failed('Failed to persist token to COMPOSER_AUTH');
+                    $this->failed('Failed to persist token to "auth.json"');
                 }
             }
         } while (! isset($this->user_data));
