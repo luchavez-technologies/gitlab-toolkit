@@ -11,7 +11,7 @@
 Via Composer
 
 ``` bash
-$ composer require luchavez/gitlab-toolkit
+$ composer require luchavez/gitlab-toolkit --dev
 ```
 
 ## Usage
