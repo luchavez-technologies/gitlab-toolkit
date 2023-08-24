@@ -1,6 +1,6 @@
 {
     "name": "luchavez/gitlab-toolkit",
-    "description": "Gitlab Toolkit Laravel Package",
+    "description": "Gitlab Toolkit for Laravel 8|9|10",
     "license": "MIT",
     "authors": [
         {
