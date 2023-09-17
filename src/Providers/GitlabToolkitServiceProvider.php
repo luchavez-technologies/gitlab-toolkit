@@ -63,7 +63,7 @@ class GitlabToolkitServiceProvider extends ServiceProvider
         // Publishing the configuration file.
         $this->publishes(
             [
-                __DIR__.'/../config/gitlab-toolkit.php' => config_path('gitlab-toolkit.php'),
+                __DIR__.'/../../config/gitlab-toolkit.php' => config_path('gitlab-toolkit.php'),
             ],
             'gitlab-toolkit.config'
         );

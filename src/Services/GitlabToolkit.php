@@ -2,10 +2,10 @@
 
 namespace Luchavez\GitlabToolkit\Services;
 
+use Illuminate\Support\Collection;
 use Luchavez\GitlabSdk\Data\Packages\ListGroupPackagesAttributes;
 use Luchavez\GitlabSdk\DataTransferObjects\GitlabCurrentUserResponseData;
 use Luchavez\GitlabSdk\Services\GitlabSdk;
-use Illuminate\Support\Collection;
 
 /**
  * Class GitlabToolkit
@@ -19,7 +19,7 @@ class GitlabToolkit
     /**
      * @var string|null
      */
-    protected string|null $token;
+    protected ?string $token;
 
     /**
      * Constructor
@@ -69,7 +69,7 @@ class GitlabToolkit
      * @param  bool  $to_auth_json
      * @return bool
      */
-    public function setToken(string|null $token = null, bool $to_auth_json = false): bool
+    public function setToken(string $token = null, bool $to_auth_json = false): bool
     {
         $token = $this->cleanToken($token);
 
@@ -79,7 +79,7 @@ class GitlabToolkit
             $arguments = [
                 'composer',
                 'config',
-                $this->getGitlabUrlArgument()
+                $this->getGitlabUrlArgument(),
             ];
 
             $arguments[] = $token ?: '--unset';
@@ -101,7 +101,7 @@ class GitlabToolkit
      * @param  string|null  $token
      * @return string|null
      */
-    public function cleanToken(string $token = null): string|null
+    public function cleanToken(string $token = null): ?string
     {
         if ($token) {
             $token = preg_replace('/[^a-z\d\-_]/i', '', $token);

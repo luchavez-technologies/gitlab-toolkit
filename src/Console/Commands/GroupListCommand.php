@@ -2,8 +2,8 @@
 
 namespace Luchavez\GitlabToolkit\Console\Commands;
 
-use Luchavez\GitlabToolkit\Traits\UsesGitlabDataTrait;
 use Illuminate\Console\Command;
+use Luchavez\GitlabToolkit\Traits\UsesGitlabDataTrait;
 
 /**
  * Class GroupListCommand
