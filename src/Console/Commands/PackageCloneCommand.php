@@ -2,8 +2,8 @@
 
 namespace Luchavez\GitlabToolkit\Console\Commands;
 
-use Luchavez\GitlabToolkit\Traits\UsesGitlabDataTrait;
 use Illuminate\Console\Command;
+use Luchavez\GitlabToolkit\Traits\UsesGitlabDataTrait;
 use Symfony\Component\Console\Input\InputOption;
 
 /**
@@ -49,9 +49,9 @@ class PackageCloneCommand extends Command
             ->only($this->package_choices)
             ->map(
                 fn ($arr) => gitlabToolkit()->getGitlabSdk()
-                ->project($arr[0]['project_id'])
-                ->get()
-                ->get($this->shouldSsh() ? 'ssh_url_to_repo' : 'http_url_to_repo')
+                    ->project($arr[0]['project_id'])
+                    ->get()
+                    ->get($this->shouldSsh() ? 'ssh_url_to_repo' : 'http_url_to_repo')
             );
 
         $progressBar = $this->output->createProgressBar($projects->count());

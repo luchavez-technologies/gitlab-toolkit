@@ -2,11 +2,11 @@
 
 namespace Luchavez\GitlabToolkit\Traits;
 
-use Luchavez\GitlabSdk\DataTransferObjects\GitlabCurrentUserResponseData;
-use Luchavez\StarterKit\Traits\UsesCommandCustomMessagesTrait;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
+use Luchavez\GitlabSdk\DataTransferObjects\GitlabCurrentUserResponseData;
+use Luchavez\StarterKit\Traits\UsesCommandCustomMessagesTrait;
 use RuntimeException;
 
 /**
